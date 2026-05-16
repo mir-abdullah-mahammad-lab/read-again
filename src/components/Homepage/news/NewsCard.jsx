@@ -1,0 +1,51 @@
+import Image from "next/image";
+import Link from "next/link";
+
+
+const NewsCard = ({n}) => {
+    console.log('n value form page',n._id)
+    return (
+        <div>
+           <div className="card bg-base-100 min-w-96 w-full shadow-sm">
+            
+  
+  <div className="card-body">
+    {/* author info*/}
+            <div className="flex items-center gap-2 ">
+              <div><Image 
+              src={n.author?.img} 
+              alt="picture" 
+              height={100} 
+              width={100}
+              className="rounded-full"></Image></div>
+              <div>
+                <h2>{n.author?.name}</h2>
+                <h2>{n.author?.published_date}</h2>
+              </div>
+
+                   
+            </div>
+             <figure>
+                    <Image
+                    src={n.image_url}
+                      alt="newslater"
+                      height={300}
+                      width={300}
+                      className="w-full"
+                    ></Image>
+                    </figure>
+                <p className="line-clamp-3">{n.details}</p>
+          <div>
+            <div></div>
+            <Link href={`/news/${n._id}`}>
+            <button className="btn ">See Details</button></Link>
+          </div>
+      
+   
+  </div>
+</div>
+        </div>
+    );
+};
+
+export default NewsCard;
