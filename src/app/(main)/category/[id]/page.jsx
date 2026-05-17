@@ -17,7 +17,7 @@ const NewsCategoryPage = async({params}) => {
   // console.log(news_categories)
 
   const news = await getNewsByCatagoryId(id)
-  console.log("form the MAIN page it use news by id",news )
+  // console.log("form the MAIN page it use news by id",news )
     
        return (
     <div className="grid grid-cols-12 gap-2 container mx-auto">
