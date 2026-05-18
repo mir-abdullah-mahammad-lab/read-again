@@ -10,9 +10,9 @@ export const metadata = {
 
 const NewsCategoryPage = async({params}) => {
         const {id} = await params;
-        console.log('pepepe', id)
+        // console.log('pepepe', id)
         const data = await getCatagories()
-  console.log('the fetch json =', data.data)
+  // console.log('the fetch json =', data.data)
   const news_categories = data.data.news_category
   // console.log(news_categories)
 
