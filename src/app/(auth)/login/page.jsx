@@ -1,6 +1,7 @@
 'use client'
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const LoginPage = () => {
@@ -21,6 +22,8 @@ const LoginPage = () => {
 
        
     }
+
+    const [isShowPass, setIsShowPass] = useState(true)
     
     return (
         <div className="container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100">
@@ -40,11 +43,16 @@ const LoginPage = () => {
                 <fieldset className="fieldset">
                     <legend className="fieldset-legend">Password</legend>
                     <input 
-                    type="Password" 
+                    type={isShowPass ? "text":"Password"}
                     className="input" 
                     placeholder="Password" 
                     {...register("password", {required: "a error message showinggggg"})}/>
                     {errors.password && <p>{errors.password.message} </p>}
+                    <button 
+                    onClick={()=>{setIsShowPass(!isShowPass);
+                        
+                     }}
+                    className="btn btn-sm bg-slate-400">{isShowPass ?  "Dont Show":"show"}</button>
                 </fieldset>
                 <button className="btn btn-xs w-full bg-slate-900 text-white sm:btn-sm md:btn-md lg:btn-lg xl:btn-xl">Login</button>
             </form>
